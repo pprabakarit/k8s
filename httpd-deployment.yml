@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    app: httpd
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: httpd-pod
+      labels:
+        app: httpd
+    spec:
+      containers:
+        - name: httpd
+          image: ubuntu/apache2:2.4-22.04_beta
+  selector:
+    matchLabels:
+      app: httpd

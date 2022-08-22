@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mysql-replicaset
+  labels:
+    type: mysql-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: mysql-app
